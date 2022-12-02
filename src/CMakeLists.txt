@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.22)
+project(advent_of_code)
+
+set(CMAKE_CXX_STANDARD 20)
+file(COPY ../input DESTINATION .)
+
+add_executable(advent_of_code main.cpp aoc.h aoc.cpp utils/files.cpp sols/2022/aoc_2022.h sols/2022/aoc_2022.cpp)
+target_include_directories(advent_of_code PRIVATE ../include/)
+
+add_library(advent_of_code_lib main.cpp aoc.h aoc.cpp utils/files.cpp sols/2022/aoc_2022.h sols/2022/aoc_2022.cpp)
+target_include_directories(advent_of_code_lib PUBLIC ../include/)
