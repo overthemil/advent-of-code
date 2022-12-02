@@ -18,7 +18,7 @@ TEST(Day1_2022_Test, CalculatesEveryoneTotalCalories) {
             4,
             9
     };
-    std::vector<int> calories = AOC_2022::aggregate_calories(input);
+    std::vector<int> calories = AOC_2022::day_1_aggregate_calories(input);
 
     EXPECT_EQ(calories, expected);
 }
@@ -34,7 +34,7 @@ TEST(Day1_2022_Test, CalculatesTopThreeCalories) {
     };
 
     int expected = 65;
-    int calories = AOC_2022::calculate_top_three(input);
+    int calories = AOC_2022::day_1_calculate_top_three(input);
 
     EXPECT_EQ(calories, expected);
 }
