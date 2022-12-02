@@ -14,7 +14,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-add_executable(advent_of_code_tests 2022/2022_day_1_test.cpp)
+add_executable(advent_of_code_tests 2022/2022_day_1_test.cpp 2022/2022_day_2_test.cpp)
 target_include_directories(advent_of_code_tests PRIVATE ../src/)
 target_link_libraries(
         advent_of_code_tests
