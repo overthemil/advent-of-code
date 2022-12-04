@@ -16,6 +16,7 @@ class AOC_2022 {
 
     static Solution day1_solve();
     static Solution day2_solve();
+    static Solution day3_solve();
 public:
     AOC_2022();
     Solution solve(int day);
@@ -92,6 +93,58 @@ public:
      * @return The play that needs to be made
      */
     static std::string day_2_find_required_play(const std::string &result);
+
+    // ----------------------------------------- DAY 3 -----------------------------------------
+    /**
+     * When provided with a string containing all items that a backpack contains, it will return
+     * two strings with the items each compartment in the bag has
+     *
+     * @return A vector with two strings, each showing the items that are in each container
+     */
+    static std::vector<std::string> day_3_find_compartment_items(const std::string &backpack);
+
+    /**
+     * Find the common item that is present in both compartments
+     *
+     * @param compartments A vector of strings with items in each compartment
+     * @return A vector containing all items that are present in both compartments
+     */
+    static std::vector<char> day_3_find_common_item(const std::vector<std::string> &compartments);
+
+    /**
+     * Find the priority for the given item,
+     *      a through z have values 1 through 26
+     *      A through Z have values 27 through 52
+     *
+     * @param item The item to check
+     * @return The priority of the item
+     */
+    static int day_3_find_item_priority(char item);
+
+    /**
+     * Find the common items in each compartment in a list of backpacks and sum their priorities
+     *
+     * @param backpacks All backpacks carried by the elves
+     * @return A total sum of all priorities of the common items in the backpacks
+     */
+    static int day_3_find_total_priority_of_rucksacks(const std::vector<std::string> &backpacks);
+
+    /**
+     * Find the badge of each group and sum all of their priorities
+     *
+     * @param backpacks All backpacks carried by the elves
+     * @return A sum of all priorities of each badge
+     */
+    static int day_3_find_total_priority_of_badges(const std::vector<std::string> &backpacks);
+
+    /**
+     * Find the badge representing the groups. This is the item that is common to all three backpacks that
+     * belong to the groups
+     *
+     * @param groups The three backpacks belonging to the groups
+     * @return The item that makes the badge of the groups
+     */
+    static char day_3_find_group_badge(const std::vector<std::string> &groups);
 };
 
 #endif //ADVENT_OF_CODE_AOC_2022_H

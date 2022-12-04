@@ -12,7 +12,8 @@
 AOC_2022::AOC_2022() {
     solutions = {
             {1, []() { return day1_solve(); }},
-            {2, []() { return day2_solve(); }}
+            {2, []() { return day2_solve(); }},
+            {3, []() { return day3_solve(); }}
     };
 }
 
