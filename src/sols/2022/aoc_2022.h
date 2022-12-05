@@ -15,10 +15,16 @@ class AOC_2022 {
     std::map<int, std::function<Solution()>> solutions;
 
     static Solution day1_solve();
+
     static Solution day2_solve();
+
     static Solution day3_solve();
+
+    static Solution day4_solve();
+
 public:
     AOC_2022();
+
     Solution solve(int day);
 
     // ----------------------------------------- DAY 1 -----------------------------------------
@@ -29,7 +35,7 @@ public:
      * @param meals A list of all meals brought by the elves
      * @return A list of each elf's calories brought
      */
-    static std::vector<int> day_1_aggregate_calories(const std::vector<std::string>  &meals);
+    static std::vector<int> day_1_aggregate_calories(const std::vector<std::string> &meals);
 
     /**
      * Gets a sum of the calorie meal total for the 3 elves with the most calories brought
@@ -47,7 +53,7 @@ public:
      * @param guide The strategy guide provided by the
      * @return The total score
      */
-    static int day_2_calculate_total_score(const std::vector<std::string>  &guide);
+    static int day_2_calculate_total_score(const std::vector<std::string> &guide);
 
     /**
      * Calculate the score resulting from a play. The play must be in the format
@@ -145,6 +151,39 @@ public:
      * @return The item that makes the badge of the groups
      */
     static char day_3_find_group_badge(const std::vector<std::string> &groups);
+
+    // ----------------------------------------- DAY 4 -----------------------------------------
+    /**
+     * Takes the assignments of a pair of elves and returns each group's assignments in separate containers
+     *
+     * @param assignment The assignments of the pair, ex: "6-8,5-10"
+     * @return The assignments of each pair
+     */
+    static std::pair<std::string, std::string> day_4_split_assignments(const std::string &assignment);
+
+    /**
+     * Gets all numbers within the associated range provided by the assignment
+     *
+     * @param assignment The assignment range. Ex: 3-10
+     * @return A vector containing all of the numbers in the range
+     */
+    static std::vector<int> day_4_get_range(const std::string &assignment);
+
+    /**
+     * Count all assignments that are fully in range of another
+     *
+     * @param assignments All of the assignments of the elves
+     * @return How many are fully contained by the other
+     */
+    static int day_4_fully_contained_ranges(const std::vector<std::string> &assignments);
+
+    /**
+     * Check how many assignment pairs have overlapping ranges
+     *
+     * @param assignments All of the assignments of the elves
+     * @return How many assignment pairs overlap
+     */
+    static int day_4_intersecting_ranges(const std::vector<std::string> &assignments);
 };
 
 #endif //ADVENT_OF_CODE_AOC_2022_H
