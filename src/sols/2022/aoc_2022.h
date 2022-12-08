@@ -7,9 +7,28 @@
 
 #include <map>
 #include <functional>
+#include <stack>
 
 #include "aoc_types.h"
 #include "files.h"
+
+// ------------------------------------- DAY 5 Classes -------------------------------------
+struct CraneCommand {
+    // The stack to pick up the crate from
+    int start;
+    // The stack to place the crate on
+    int end;
+    // How many crates to move
+    int count;
+
+    // Used for testing
+    friend bool operator==(const CraneCommand &l, const CraneCommand &r) {
+        return std::tie(l.start, l.end, l.count)
+               == std::tie(r.start, r.end, r.count);
+    }
+};
+
+// ------------------------------------------ AOC  -----------------------------------------
 
 class AOC_2022 {
     std::map<int, std::function<Solution()>> solutions;
@@ -21,6 +40,8 @@ class AOC_2022 {
     static Solution day3_solve();
 
     static Solution day4_solve();
+
+    static Solution day5_solve();
 
 public:
     AOC_2022();
@@ -184,6 +205,75 @@ public:
      * @return How many assignment pairs overlap
      */
     static int day_4_intersecting_ranges(const std::vector<std::string> &assignments);
+
+    // ----------------------------------------- DAY 5 -----------------------------------------
+
+    /**
+     * Find the biggest sized stack of the currently stacked boxes
+     *
+     * @param commands The input with the stack and commands
+     * @return The maximum size of the stacks
+     */
+    static int day_5_get_max_stack_size(const std::vector<std::string> &commands);
+
+    /**
+     * Find how many stacks there are present
+     *
+     * @param commands The input with the stack and commands
+     * @return How many stacks are present
+     */
+    static int day_5_get_num_stacks(const std::vector<std::string> &commands);
+
+    /**
+     * Parse the input into a STL container that can be used to simulate the commands
+     *
+     * @param commands THe input with the stack and commands
+     * @return The stack of crates
+     */
+    static std::vector<std::stack<char>> day_5_get_stacks(const std::vector<std::string> &commands);
+
+
+    /**
+     * Separate the stack and command information
+     *
+     * @param input The input with the stack and commands
+     * @return Command information from the input as an array of strings
+     */
+    static std::vector<std::string> day_5_get_commands_strings(const std::vector<std::string> &input);
+
+    /**
+     * Parse commands strings in order to create CrateCommand objects
+     *
+     * @param commands Input with crane commands strings
+     * @return An array with CraneCommands
+     */
+    static std::vector<CraneCommand> day_5_get_commands(const std::vector<std::string> &commands);
+
+    /**
+     * Run the commands to move the crates in the stacks
+     *
+     * @param commands Input with crane commands
+     * @param initStack The initial state of the stack
+     * @return The resulting stack
+     */
+    static std::vector<std::stack<char>> day_5_run_commands(const std::vector<CraneCommand> &commands, std::vector<std::stack<char>> initStack);
+
+    /**
+     * Get the top crate from each stack
+     *
+     * @param stack The stacks of crates
+     * @return The top crates as a string. Ex: "CMZ"
+     */
+    static std::string day_5_get_top_crates(const std::vector<std::stack<char>> &stack);
+
+    /**
+     * Run the commands to move the crates in the stacks. It uses the functionality of the CrateMover 9001
+     *
+     * @param commands Input with crane commands
+     * @param initStack The inital state of the stack
+     * @return The resulting stack
+     */
+    static std::vector<std::stack<char>> day_5_run_commands_9001(const std::vector<CraneCommand> &commands, std::vector<std::stack<char>> initStack);
 };
 
 #endif //ADVENT_OF_CODE_AOC_2022_H
