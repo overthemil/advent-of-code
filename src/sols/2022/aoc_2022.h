@@ -43,6 +43,8 @@ class AOC_2022 {
 
     static Solution day5_solve();
 
+    static Solution day6_solve();
+
 public:
     AOC_2022();
 
@@ -256,7 +258,8 @@ public:
      * @param initStack The initial state of the stack
      * @return The resulting stack
      */
-    static std::vector<std::stack<char>> day_5_run_commands(const std::vector<CraneCommand> &commands, std::vector<std::stack<char>> initStack);
+    static std::vector<std::stack<char>>
+    day_5_run_commands(const std::vector<CraneCommand> &commands, std::vector<std::stack<char>> initStack);
 
     /**
      * Get the top crate from each stack
@@ -273,7 +276,19 @@ public:
      * @param initStack The inital state of the stack
      * @return The resulting stack
      */
-    static std::vector<std::stack<char>> day_5_run_commands_9001(const std::vector<CraneCommand> &commands, std::vector<std::stack<char>> initStack);
+    static std::vector<std::stack<char>>
+    day_5_run_commands_9001(const std::vector<CraneCommand> &commands, std::vector<std::stack<char>> initStack);
+
+    // ----------------------------------------- DAY 6 -----------------------------------------
+
+   /**
+    * The start of packet marker is indicated in the input by a sequence of seq_size characters that are all different.
+    *
+    * @param input The message datastream
+    * @param seq_size How many characters long is the sequence
+    * @return The marker position after the sequence
+    */
+    static int day_6_find_marker_pos(const std::string &input, int seq_size);
 };
 
 #endif //ADVENT_OF_CODE_AOC_2022_H

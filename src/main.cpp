@@ -6,7 +6,7 @@
 int main() {
     AOC aoc;
     Solution solution;
-    solution = aoc.solve(2022, 5);
+    solution = aoc.solve(2022, 6);
     std::cout << "\tPart 1 - " << solution.part1 << std::endl;
     std::cout << "\tPart 2 - " << solution.part2 << std::endl;
     std::cout << "\tTime Taken - " << solution.time_taken << " us" << std::endl;
